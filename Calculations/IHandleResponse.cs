@@ -4,6 +4,6 @@ namespace GamblingAPI.Calculations
 {
     public interface IHandleResponse
     {
-        GamblingResponse GetResponse(GamblingRequest request, GamblingResult result, string message);
+        GamblingResponse GetResponse(GamblingRequest request, GamblingResult result, string message, int generatedNum);
     }
 }

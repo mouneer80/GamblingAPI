@@ -4,23 +4,27 @@ namespace GamblingAPI.Calculations
 {
     public class HandleRequest : IHandleRequest
     {
-        private readonly IGamblingRequest _request;
         private readonly IGenerateRndNumber _rndNumber;
 
         public HandleRequest(IGamblingRequest request, IGenerateRndNumber rndNumber)
         {
-            this._request = request;
             this._rndNumber = rndNumber;
         }
-        public int Gambling(int betNumber)
+        public int[] Gambling(int betNumber, int betPoints)
         {
             int generatedNumber = _rndNumber.GenerateNumber();
-            if (generatedNumber == _request.BetNumber) return Winner();
-            return 0;
+            int[] result = new int[2];
+            result[0] = generatedNumber;
+            result[1] = 0;
+            if (generatedNumber == betNumber)
+            {
+                result[1] = Winner(betPoints);
+            }
+            return result;
         }
-        private int Winner()
+        private int Winner(int betPoints)
         {
-            int points = _request.BetPoints * 9;
+            int points = betPoints * 9;
             return points;
         }
 

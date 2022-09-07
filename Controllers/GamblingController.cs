@@ -29,20 +29,22 @@ namespace GamblingAPI.Controllers
         {
             GamblingResult gResult = new GamblingResult();
             int valid = _validateRequest.Validate(request);
+            int[] result = new int[2];
             if (valid == 0)
             {
                 Player? player = _player.GetPlayerByID(request.PlayerID);
                 if(player != null)
                     _player.UpdatePlayerCurrentPoints(request.BetPoints, player);
-                int result = _handleRequest.Gambling(request.BetNumber);
-                if (result != 0)
+                result = _handleRequest.Gambling(request.BetNumber,request.BetPoints);
+                if (result[1] != 0)
                 {
                     gResult.Status = "Won";
-                    gResult.BetPoints = result;
+                    gResult.BetPoints = result[1];
+                    _player.UpdatePlayerCurrentPoints(result[1], player, 1);
                 }
             }
             string message = _message.GetMessage(valid);
-            return _handleResponse.GetResponse(request, gResult, message);
+            return _handleResponse.GetResponse(request, gResult, message, result[0]);
         }
     }
 }

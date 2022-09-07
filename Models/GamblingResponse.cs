@@ -6,5 +6,6 @@
         public string Status { get; set; } = "Try again";
         public int Points { get; set; }
         public string Message { get; set; } = "Not Defined";
+        public int GeneratedNumber { get; set; }
     }
 }

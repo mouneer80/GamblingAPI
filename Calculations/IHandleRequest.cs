@@ -2,6 +2,6 @@
 {
     public interface IHandleRequest
     {
-        int Gambling(int betNumber);
+        int[] Gambling(int betNumber, int betPoints);
     }
 }
