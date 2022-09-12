@@ -1,4 +1,5 @@
 ﻿using GamblingAPI.Models;
+using GamblingAPI.Repo;
 
 namespace GamblingAPI.Calculations
 {

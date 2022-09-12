@@ -1,5 +1,7 @@
 using GamblingAPI.Calculations;
+using GamblingAPI.Data;
 using GamblingAPI.Models;
+using GamblingAPI.Repo;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,9 +17,8 @@ builder.Services.AddScoped<IPlayersRepo, PlayersRepo>();
 builder.Services.AddScoped<IValidateRequest, ValidateRequest>();
 builder.Services.AddScoped<IHandleRequest, HandleRequest>();
 builder.Services.AddScoped<IHandleResponse, HandleResponse>();
-builder.Services.AddScoped<IMessages, Messages>();
-builder.Services.AddScoped<IGamblingRequest, GamblingRequest>();
-builder.Services.AddScoped<IGenerateRndNumber, GenerateRndNumber>();
+builder.Services.AddSingleton<IMessages, Messages>();
+builder.Services.AddTransient<IGenerateRndNumber, GenerateRndNumber>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

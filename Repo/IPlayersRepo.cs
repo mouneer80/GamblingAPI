@@ -1,4 +1,6 @@
-﻿namespace GamblingAPI.Models
+﻿using GamblingAPI.Models;
+
+namespace GamblingAPI.Repo
 {
     public interface IPlayersRepo
     {

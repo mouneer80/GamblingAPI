@@ -1,4 +1,4 @@
-﻿using GamblingAPI.Models;
+﻿using GamblingAPI.Data;
 
 namespace GamblingAPI.Calculations
 {
@@ -6,7 +6,7 @@ namespace GamblingAPI.Calculations
     {
         private readonly IGenerateRndNumber _rndNumber;
 
-        public HandleRequest(IGamblingRequest request, IGenerateRndNumber rndNumber)
+        public HandleRequest(IGenerateRndNumber rndNumber)
         {
             this._rndNumber = rndNumber;
         }
@@ -27,6 +27,5 @@ namespace GamblingAPI.Calculations
             int points = betPoints * 9;
             return points;
         }
-
     }
 }

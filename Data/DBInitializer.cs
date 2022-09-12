@@ -3,7 +3,7 @@ using FizzWare.NBuilder;
 using GamblingAPI.Models;
 
 
-namespace GamblingAPI.Models
+namespace GamblingAPI.Data
 {
     public class DBInitializer
     {

@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GamblingAPI.Data;
+using GamblingAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace GamblingAPI.Models
+namespace GamblingAPI.Repo
 {
     public class PlayersRepo : IPlayersRepo
     {
@@ -11,7 +13,7 @@ namespace GamblingAPI.Models
         #region Constructor
         public PlayersRepo(AppDbContext appDbContext)
         {
-            this._appDbContext = appDbContext;
+            _appDbContext = appDbContext;
         }
         #endregion
 
@@ -19,7 +21,7 @@ namespace GamblingAPI.Models
         public Player? GetPlayerByID(int playerId)
         {
             Player? player = _appDbContext.Palyers.FirstOrDefault(p => p.ID == playerId);
-            if(player != null && player.OpeningPoints != 0) SetCurrentPoints(player);
+            if (player != null && player.OpeningPoints != 0) SetCurrentPoints(player);
             return player;
         }
         private Player SetCurrentPoints(Player player)

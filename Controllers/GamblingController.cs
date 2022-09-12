@@ -1,5 +1,6 @@
 using GamblingAPI.Calculations;
 using GamblingAPI.Models;
+using GamblingAPI.Repo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GamblingAPI.Controllers

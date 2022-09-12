@@ -1,4 +1,4 @@
-﻿using GamblingAPI.Models;
+﻿using GamblingAPI.Repo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,6 +1,8 @@
-﻿namespace GamblingAPI.Models
+﻿using GamblingAPI.Data;
+
+namespace GamblingAPI.Models
 {
-    public class GamblingResponse : IGamblingResponse
+    public class GamblingResponse
     {
         public int Account { get; set; }
         public string Status { get; set; } = "Try again";

@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GamblingAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace GamblingAPI.Models
+namespace GamblingAPI.Data
 {
     public class AppDbContext : DbContext
     {
